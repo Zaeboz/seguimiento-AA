@@ -1,2 +1,2 @@
-public class 1_Burbuja {
+public class Burbuja {
 }
