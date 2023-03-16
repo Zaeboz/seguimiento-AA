@@ -1,4 +1,11 @@
-public class A5_RecursiveInsertionSort {
+package algoritmos_ordenamiento;
+
+public class A5_RecursiveInsertionSort extends Ordenamiento implements Runnable {
+
+    private static int[] array;
+
+    public A5_RecursiveInsertionSort() {
+    }
 
     /**
      * Este método ordena un arreglo de enteros usando el algoritmo de
@@ -6,13 +13,11 @@ public class A5_RecursiveInsertionSort {
      * arreglo desde el ultimo elemento hasta el segundo, y a cada elemento se le
      * compara con los anteriores, si es menor se intercambia de lugar con el
      * anterior,
-     * @param arreglo
-     * @param n
-     * @return
+     *
      */
-    public static int[] recursiveInsertionSort(int[] arreglo, int n) {
+    public static void recursiveInsertionSort(int[] arreglo, int n) {
         if (n <= 1) {
-            return arreglo;
+            array = arreglo;
         }
         recursiveInsertionSort(arreglo, n - 1);
         int llave = arreglo[n - 1];
@@ -22,6 +27,16 @@ public class A5_RecursiveInsertionSort {
             j--;
         }
         arreglo[j + 1] = llave;
-        return arreglo;
+        array = arreglo;
+    }
+
+    @Override
+    public void ordenar(int[] arreglo) {
+        recursiveInsertionSort(arreglo, arreglo.length);
+    }
+
+    @Override
+    public void run() {
+        ordenar(array);
     }
 }

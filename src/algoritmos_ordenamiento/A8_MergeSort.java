@@ -1,4 +1,8 @@
-public class A8_MergeSort {
+package algoritmos_ordenamiento;
+
+public class A8_MergeSort extends Ordenamiento implements Runnable {
+
+    private static int[] array;
 
     //constructor
     public A8_MergeSort(){
@@ -8,7 +12,8 @@ public class A8_MergeSort {
     public static int[] mergeSort(int[] arreglo) {
         int n = arreglo.length;
         if (n < 2) {
-            return arreglo;
+            array = arreglo;
+            return array;
         }
         int mitad = n / 2;
         int[] left = new int[mitad];
@@ -21,7 +26,8 @@ public class A8_MergeSort {
         }
         left = mergeSort(left);
         right = mergeSort(right);
-        return merge(left, right);
+        array = merge(left, right);
+        return array;
     }
 
     private static int[] merge(int[] left, int[] right) {
@@ -43,4 +49,13 @@ public class A8_MergeSort {
         return result;
     }
 
+    @Override
+    public void ordenar(int[] arreglo) {
+        mergeSort(arreglo);
+    }
+
+    @Override
+    public void run() {
+        ordenar(array);
+    }
 }

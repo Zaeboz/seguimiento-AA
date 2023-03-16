@@ -1,13 +1,19 @@
-public class A3_Seleccion {
+package algoritmos_ordenamiento;
+
+public class A3_Seleccion extends Ordenamiento implements Runnable {
+
+    private static int[] array;
+
+    public A3_Seleccion() {
+    }
 
     /**
      * El metodo seleccion ordena un arreglo de enteros utilizando el algoritmo
      * de ordenamiento seleccion. El algoritmo consiste en repetir múltiples
      * veces un proceso de comparación entre elementos adyacentes del arreglo.
      * @param arreglo El arreglo a ordenar
-     * @return El arreglo ordenado
      */
-    public static int[] seleccion(int[] arreglo) {
+    public static void seleccion(int[] arreglo) {
         int aux, menor;
         for (int i = 0; i < arreglo.length; i++) {
             menor = i;
@@ -20,6 +26,16 @@ public class A3_Seleccion {
             arreglo[i] = arreglo[menor];
             arreglo[menor] = aux;
         }
-        return arreglo;
+        array = arreglo;
+    }
+
+    @Override
+    public void ordenar(int[] arreglo) {
+
+    }
+
+    @Override
+    public void run() {
+        ordenar(array);
     }
 }

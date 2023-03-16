@@ -1,4 +1,11 @@
-public class A4_Insercion {
+package algoritmos_ordenamiento;
+
+public class A4_Insercion extends Ordenamiento implements Runnable{
+
+    private static int[] array;
+
+    public A4_Insercion() {
+    }
 
     /**
      * Este método ordena un arreglo de enteros mediante el método de inserción.
@@ -8,9 +15,8 @@ public class A4_Insercion {
      * este, hasta que se encuentre un elemento menor o se llegue al inicio del
      * arreglo.
      * @param arreglo El arreglo a ordenar
-     * @return El arreglo ordenado
      */
-    public static int[] insercion(int[] arreglo) {
+    public static void insercion(int[] arreglo) {
         int llave, i;
         for (int j = 1; j < arreglo.length; j++) {
             llave = arreglo[j];
@@ -21,6 +27,16 @@ public class A4_Insercion {
             }
             arreglo[i + 1] = llave;
         }
-        return arreglo;
+        array = arreglo;
+    }
+
+    @Override
+    public void ordenar(int[] arreglo) {
+        insercion(arreglo);
+    }
+
+    @Override
+    public void run() {
+        ordenar(array);
     }
 }

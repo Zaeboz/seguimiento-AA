@@ -1,9 +1,13 @@
+package algoritmos_ordenamiento;
+
 import java.util.ArrayList;
 import java.util.Collections;
 
-public class A7_BucketSort {
+public class A7_BucketSort extends Ordenamiento implements Runnable {
 
-    public static int[] bucketSort(int[] arreglo) {
+    private static int[] array;
+
+    public static void bucketSort(int[] arreglo) {
         // Encontrar el valor máximo y mínimo en el arreglo
         int maxValue = arreglo[0];
         int minValue = arreglo[0];
@@ -35,7 +39,16 @@ public class A7_BucketSort {
                 arreglo[index++] = buckets[i].get(j);
             }
         }
-        return arreglo;
+        array = arreglo;
     }
 
+    @Override
+    public void ordenar(int[] arreglo) {
+        bucketSort(arreglo);
+    }
+
+    @Override
+    public void run() {
+        ordenar(array);
+    }
 }
