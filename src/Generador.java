@@ -12,7 +12,7 @@ public class Generador {
     public static String generarArreglo(int numero)
     {
 
-        String numerosEnCadena=new String();
+        String numerosEnCadena= "";
 
         int[] arr = new int[numero]; 
         Random random = new Random(); // crear un objeto Random para generar números aleatorios

@@ -2,9 +2,9 @@ package algoritmos_ordenamiento;
 
 public class A6_ShellSort extends Ordenamiento implements Runnable {
 
-    private static int[] array;
+    private int[] array;
 
-    public static void shellSort(int[] arreglo) {
+    public void shellSort(int[] arreglo) {
         for(int incr = arreglo.length / 2; incr > 0; incr /= 2) {
             for(int i = incr; i < arreglo.length; i++) {
                 int j = i - incr;
@@ -21,6 +21,7 @@ public class A6_ShellSort extends Ordenamiento implements Runnable {
                 }
             }
         }
+        array = arreglo;
     }
 
     @Override

@@ -2,7 +2,7 @@ package algoritmos_ordenamiento;
 
 public class A3_Seleccion extends Ordenamiento implements Runnable {
 
-    private static int[] array;
+    private int[] array;
 
     public A3_Seleccion() {
     }
@@ -13,7 +13,7 @@ public class A3_Seleccion extends Ordenamiento implements Runnable {
      * veces un proceso de comparación entre elementos adyacentes del arreglo.
      * @param arreglo El arreglo a ordenar
      */
-    public static void seleccion(int[] arreglo) {
+    public void seleccion(int[] arreglo) {
         int aux, menor;
         for (int i = 0; i < arreglo.length; i++) {
             menor = i;
@@ -31,7 +31,7 @@ public class A3_Seleccion extends Ordenamiento implements Runnable {
 
     @Override
     public void ordenar(int[] arreglo) {
-
+        seleccion(arreglo);
     }
 
     @Override

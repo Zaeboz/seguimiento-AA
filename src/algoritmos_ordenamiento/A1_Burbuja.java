@@ -2,7 +2,7 @@ package algoritmos_ordenamiento;
 
 public class A1_Burbuja extends Ordenamiento implements Runnable {
 
-    private static int[] array;
+    private int[] array;
 
     public A1_Burbuja(){
     }
@@ -16,7 +16,7 @@ public class A1_Burbuja extends Ordenamiento implements Runnable {
      * que significa que el arreglo está ordenado.
      * @param arreglo El arreglo a ordenar
      */
-    public static void burbuja(int[] arreglo){
+    public void burbuja(int[] arreglo){
         int aux;
         for (int i = 0; i < arreglo.length; i++) {
             for (int j = 0; j < arreglo.length - 1; j++) {

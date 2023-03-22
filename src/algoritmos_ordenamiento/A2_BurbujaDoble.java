@@ -2,7 +2,7 @@ package algoritmos_ordenamiento;
 
 public class A2_BurbujaDoble extends Ordenamiento implements Runnable {
 
-    private static int[] array;
+    private int[] array;
 
     /**
      * El método burbujaDoble() ordena un arreglo de enteros utilizando el
@@ -14,7 +14,7 @@ public class A2_BurbujaDoble extends Ordenamiento implements Runnable {
      * @param arreglo El arreglo a ordenar
      * @return El arreglo ordenado
      */
-    public static void burbujaDoble(int[] arreglo) {
+    public void burbujaDoble(int[] arreglo) {
         int aux, primero = 1, ultimo = arreglo.length - 1, dir = arreglo.length - 1;
         while(ultimo >= primero){
             for(int i = ultimo; i >= primero; i--){

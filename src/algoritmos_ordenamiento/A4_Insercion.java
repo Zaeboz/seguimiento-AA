@@ -2,7 +2,7 @@ package algoritmos_ordenamiento;
 
 public class A4_Insercion extends Ordenamiento implements Runnable{
 
-    private static int[] array;
+    private int[] array;
 
     public A4_Insercion() {
     }
@@ -16,7 +16,7 @@ public class A4_Insercion extends Ordenamiento implements Runnable{
      * arreglo.
      * @param arreglo El arreglo a ordenar
      */
-    public static void insercion(int[] arreglo) {
+    public void insercion(int[] arreglo) {
         int llave, i;
         for (int j = 1; j < arreglo.length; j++) {
             llave = arreglo[j];

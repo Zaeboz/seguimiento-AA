@@ -5,9 +5,9 @@ import java.util.Collections;
 
 public class A7_BucketSort extends Ordenamiento implements Runnable {
 
-    private static int[] array;
+    private int[] array;
 
-    public static void bucketSort(int[] arreglo) {
+    public void bucketSort(int[] arreglo) {
         // Encontrar el valor máximo y mínimo en el arreglo
         int maxValue = arreglo[0];
         int minValue = arreglo[0];
