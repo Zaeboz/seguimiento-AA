@@ -1,103 +1,96 @@
 package estructuras_datos;
 
-public class Cola 
-{
-	private ListaSimple cola;
-	
-	private int capacidad;
-	
-	private int cantidadIngresos;
-	
-	public Cola()
-	{
-		cola = new ListaSimple();
-		
-		cantidadIngresos = 0;
-	}
-	
-	public int peek()
-	{
-		cola.getNodoPrimero();
+public class Cola<T> {
+    private final ListaSimple<T> cola;
+    private int capacidad;
+    private int cantidadIngresos;
 
-		return (int) cola.obtenerValorNodo(cola.getTamanio());
-	}
-	
-	public void agregar(int elemento,String nombre)
-	{	
-		if(cantidadIngresos<capacidad)
-		{
-		
-		cola.agregarfinal(elemento);
-		
-		cantidadIngresos++;
-		
-		}else
-		{
-			System.out.println("La cola esta llena");
-		}
-	}
-	
-	public int poll()
-	{
-		int dato = peek();
-		
-		cola.eliminarPrimero();
-		
-		return dato;
-	}
-	
-	public boolean colaVacia ()
-	{
-		if(cola.getTamanio()== 0)
-		{
-			return true;
-		}else
-		{
-			return false;
-		}
-	}
-	
-	public static boolean compararColas (Cola cola1, Cola cola2)
-	{
-		boolean centi = false;
-		
-		if(cola1.getCapacidad() == cola2.getCapacidad())
-		{
-			for(int i = 0; i <= cola1.getCapacidad() - 1;i++)
-			{
-				centi = cola1.peek() == cola2.peek();
-				
-				cola1.poll();
-				
-				cola2.poll();
-			}
-		}
-		
-		return centi;		
-	}
-	
-	public int obtenerLongitud()
-	{
-		return cola.getTamanio();
-	}
+    public Cola() {
+        cola = new ListaSimple<>();
+        cantidadIngresos = 0;
+    }
 
-	public void eliminar()
-	{
-		cola.eliminarPrimero();
-	}
+    public T dequeue() {
+        T dato = null;
+        if (!colaVacia()) {
+            dato = peek();
+            cola.eliminarPrimero();
+            cantidadIngresos--;
+        } else {
+            System.out.println("La cola esta vacia");
+        }
+        return dato;
+    }
 
-	public String toString()
-	{
-		return cola.toString();
-	}
+    public void queue(T elemento) {
+        if (cantidadIngresos < capacidad) {
+            cola.agregarfinal(elemento);
+            cantidadIngresos++;
+        } else {
+            System.out.println("La cola esta llena");
+        }
+    }
 
-	public int getCapacidad() {
-		return capacidad;
-	}
+    public Nodo<T> top() {
+        return cola.getNodoPrimero();
+    }
 
-	public void setCapacidad(int capacidad) {
-		this.capacidad = capacidad;
-	}
+    public T peek() {
+        cola.getNodoPrimero();
+        return cola.obtenerValorNodo(cola.getTamanio());
+    }
 
-	
+    public void agregar(T elemento, String nombre) {
+        if (cantidadIngresos < capacidad) {
+
+            cola.agregarfinal(elemento);
+            cantidadIngresos++;
+        } else {
+            System.out.println("La cola esta llena");
+        }
+    }
+
+    public void poll() {
+        T dato = peek();
+        cola.eliminarPrimero();
+    }
+
+    public boolean colaVacia() {
+        return cola.getTamanio() == 0;
+    }
+
+    public boolean compararColas(Cola<T> cola1, Cola<T> cola2) {
+        boolean centi = false;
+
+        if (cola1.getCapacidad() == cola2.getCapacidad()) {
+            for (int i = 0; i <= cola1.getCapacidad() - 1; i++) {
+                centi = cola1.peek() == cola2.peek();
+
+                cola1.poll();
+                cola2.poll();
+            }
+        }
+        return centi;
+    }
+
+    public int obtenerLongitud() {
+        return cola.getTamanio();
+    }
+
+    public void eliminar() {
+        cola.eliminarPrimero();
+    }
+
+    public String toString() {
+        return cola.toString();
+    }
+
+    public int getCapacidad() {
+        return capacidad;
+    }
+
+    public void setCapacidad(int capacidad) {
+        this.capacidad = capacidad;
+    }
+
 }
